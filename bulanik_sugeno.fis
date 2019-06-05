@@ -1,0 +1,58 @@
+[System]
+Name='bulanik_sugeno'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=16
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Duman'
+Range=[0 100]
+NumMFs=4
+MF1='Yok':'trimf',[0 0 20]
+MF2='Az':'trimf',[0 30 60]
+MF3='Normal':'trimf',[20 60 100]
+MF4='Cok':'trimf',[60 100 100]
+
+[Input2]
+Name='Gaz'
+Range=[0 100]
+NumMFs=4
+MF1='Yok':'trimf',[0 0 20]
+MF2='Az':'trimf',[0 30 60]
+MF3='Normal':'trimf',[20 60 100]
+MF4='Cok':'trimf',[60 100 100]
+
+[Output1]
+Name='Havalandirma'
+Range=[0 1]
+NumMFs=5
+MF1='Dur':'constant',[0]
+MF2='Az':'constant',[0.25]
+MF3='Orta':'constant',[0.5]
+MF4='Yuksek':'constant',[0.75]
+MF5='CokYuksek':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+1 4, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 3 (1) : 1
+2 4, 4 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 4 (1) : 1
+3 4, 5 (1) : 1
+4 1, 3 (1) : 1
+4 2, 4 (1) : 1
+4 3, 5 (1) : 1
+4 4, 5 (1) : 1
